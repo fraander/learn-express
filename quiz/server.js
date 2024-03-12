@@ -26,7 +26,6 @@ const addMsgToRequest = function (req, res, next) {
   }
 };
 
-app.use(cors({ origin: "http://localhost:3000" }));
 app.use("/read/usernames", addMsgToRequest);
 
 app.get("/read/usernames", (req, res) => {
@@ -35,6 +34,7 @@ app.get("/read/usernames", (req, res) => {
   });
   res.send(usernames);
 });
+app.use(cors({ origin: "http://localhost:3000" }));
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
